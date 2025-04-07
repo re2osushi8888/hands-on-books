@@ -1,0 +1,10 @@
+# python
+__pycache__
+.venv
+.mypy_cache
+.ruff_cache
+
+# typescripts
+node_modules
+.next
+next-env.d.ts

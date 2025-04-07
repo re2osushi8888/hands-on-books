@@ -1,0 +1,58 @@
+version: '1'
+services:
+  db:
+    image: mysql:8
+    container_name: mysql-db
+    hostname: mysql
+    command:
+      --collation-server=utf8mb4_0900_bin
+      --transaction-isolation=READ-COMMITTED
+    restart: always
+    environment:
+      MYSQL_DATABASE: database
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+      TZ: Asia/Tokyo
+    networks:
+      - app-network
+    ports:
+      - "3306:3306"
+
+  backend:
+    build:
+      context: .devcontainer
+      dockerfile: backend/Dockerfile
+    volumes:
+      - .:/workspace:cached
+    working_dir: /workspace/backend
+    command: sleep infinity
+    # command: uv run python manage.py runserver 0.0.0.0:8000 --settings config.settings.development
+    environment:
+      DATABASE_URL: mysql://user:password@db:3306/database
+    depends_on:
+      - db
+    networks:
+      - app-network
+    ports:
+      - "8000:8000"
+
+  frontend:
+    build:
+      context: .devcontainer
+      dockerfile: frontend/Dockerfile
+    volumes:
+      - .:/workspace:cached
+    working_dir: /workspace/frontend
+    command: sleep infinity
+    # command: bun dev
+    depends_on:
+      - backend
+    networks:
+      - app-network
+    ports:
+      - "3000:3000"
+
+networks:
+  app-network:
+    driver: bridge

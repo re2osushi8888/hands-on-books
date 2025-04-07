@@ -1,0 +1,55 @@
+[project]
+name = "backend"
+version = "0.1.0"
+python = "3.12"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "django>=5.1.1",
+    "django-cors-headers>=4.4.0",
+    "djangorestframework>=3.15.2",
+    "mysqlclient>=2.2.4",
+]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=8.3.3",
+    "pytest-watch>=4.2.0",
+    "ruff>=0.6.8",
+    "mypy>=1.11.2",
+    "django-stubs>=5.1.0",
+    "djangorestframework-stubs>=3.15.1",
+]
+
+[tool.ruff]
+line-length = 120
+indent-width = 4
+src = ["src", "test"]
+exclude = [
+    ".git",
+    ".git-rewrite",
+    ".mypy_cache",
+    ".ruff_cache",
+    ".venv",
+]
+
+[tool.ruff.lint]
+select = [
+  "E", # black
+  "F", # Flake8
+  "I", # isort
+]
+
+[tool.ruff.format]
+quote-style = "single"
+
+[tool.mypy]
+# disallow_untyped_defs = true
+plugins = [
+    "mypy_django_plugin.main",
+    "mypy_drf_plugin.main"
+]
+
+[tool.django-stubs]
+django_settings_module = "config.settings"
