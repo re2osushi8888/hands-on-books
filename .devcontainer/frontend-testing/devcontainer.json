@@ -1,7 +1,7 @@
 {
 	"name": "Frontend Container",
 	"image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
-	"workspaceFolder": "/workspaces/study-frontend-testing",
+	"workspaceFolder": "/workspaces/hands-on-books/frontend-testing/",
 	"customizations": {
 		"vscode": {
 			"extensions": [
@@ -35,7 +35,6 @@
 	"features": {
 		"ghcr.io/devcontainers/features/node:1": {},
 		"ghcr.io/devcontainers-community/npm-features/typescript:1": {},
-		"ghcr.io/devcontainers/features/git:1": {},
-		"ghcr.io/shyim/devcontainers-features/bun:0": {}
+		"ghcr.io/devcontainers/features/git:1": {}
 	}
 }
