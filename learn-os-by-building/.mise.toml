@@ -1,8 +1,5 @@
 [env]
 
-[tools]
-rust = "1.81.0"
-
 [tasks.build]
 description = "Build the OS"
 run = "cargo build"
