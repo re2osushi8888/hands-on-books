@@ -1,0 +1,23 @@
+# Rust
+/target/
+**/*.rs.bk
+Cargo.lock
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# direnv
+.direnv/
+.envrc.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Mise
+.mise/
+.mise.local.toml

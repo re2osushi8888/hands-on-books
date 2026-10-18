@@ -1,0 +1,20 @@
+[env]
+
+[tools]
+rust = "1.81.0"
+
+[tasks.build]
+description = "Build the OS"
+run = "cargo build"
+
+[tasks.run]
+description = "Run the OS in QEMU"
+run = "cargo run"
+
+[tasks.test]
+description = "Run tests"
+run = "cargo test"
+
+[tasks.clean]
+description = "Clean build artifacts"
+run = "cargo clean"

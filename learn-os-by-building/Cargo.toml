@@ -1,0 +1,19 @@
+[package]
+name = "learn-os"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+opt-level = 3
+lto = true
+panic = "abort"
+
+[[bin]]
+name = "kernel"
+path = "src/main.rs"
+test = false
