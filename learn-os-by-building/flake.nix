@@ -14,28 +14,8 @@
       {
         devShells.default = pkgs.mkShell {
           buildInputs = with pkgs; [
-            # Rust (nightly for bare metal development)
-            rustup
-            cargo
-            rustc
-
-            # QEMU for OS emulation
             qemu
-
-            # Build tools
-            pkg-config
-            gcc
-
-            # Development utilities
-            git
-            curl
-            wget
           ];
-
-          shellHook = ''
-            echo "OS Development Environment Loaded"
-            echo "QEMU version: $(qemu-system-x86_64 --version)"
-          '';
         };
       }
     );
